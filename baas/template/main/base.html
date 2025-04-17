@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% load static %}
+        <title>{% block title %}EcoSwap{% endblock %}</title>
+        {% block css %}
+        <link rel="stylesheet" href="{% static 'css/landingpage.css' %}">
+        {% endblock %}
+        <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+    <!-- Headder -->
+    {% block header %}
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <div class="logo-icon"></div>
+                    <div class="logo-text">EcoSwap</div>
+                </div>
+                <div class="nav-links">
+                    <a href="{% url 'landingpage' %}">Home</a>
+                    <a href="#">Shop</a>
+                    <a href="{% url 'about' %}">About</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="nav-actions">
+                    <a href="#" class="cart-icon"><i class='bx bx-cart-alt' ></i></a>
+                    <a href="#" class="sign-in">Sign In</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    {% endblock %}
+
+    <!-- Hero Section -->
+    {% block hero %}
+
+    {% endblock %}
+
+    <!-- Products -->
+    {% block main %}
+
+    {% endblock %}
+
+    <!-- Footer -->
+    {% block footer %}
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="logo">
+                      <div class="logo-icon"></div>
+                      <span class="footer-logo-text">EcoShop</span>
+                    </div>
+                    <p>Committed to providing sustainable products that make a difference.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Shop</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">All Products</a></li>
+                        <li><a href="#">Best Seller</a></li>
+                        <li><a href="#">Battery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Origin</a></li>
+                        <li><a href="#">Carrier</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        
+                    </div>
+                    <p>support@echoswap.com</p>
+                    <p>+91 98765 43210</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 EcoSwap. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    {% endblock %}
+</body>
+</html>

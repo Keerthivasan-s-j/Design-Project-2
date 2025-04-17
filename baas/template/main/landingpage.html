@@ -1,0 +1,65 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+<!-- Hero Section -->
+{% block hero %}
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Hello Keerthivasan S J</h1>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque, ab?</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary">Shop Now</a>
+                <a href="#" class="btn btn-outline">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+<!-- Products -->
+{% block main %}
+<section class="products">
+    <div class="container">
+        <h1 class="section-title">Featured Products</h1>
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <!-- <button class="fav-btn">
+                        <div class="fav-icon"></div>
+                    </button> -->
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Battery</h3>
+                    <div class="product-rating">
+                        <span class="rating-count">(4.5)</span>
+                    </div>
+                </div>
+                <div class="product-footer">
+                    <span class="product-price">₹5000</span>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <!-- <button class="fav-btn">
+                        <div class="fav-icon"></div>
+                    </button> -->
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Battery</h3>
+                    <div class="product-rating">
+                        <span class="rating-count">(4.5)</span>
+                    </div>
+                </div>
+                <div class="product-footer">
+                    <span class="product-price">₹5000</span>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
