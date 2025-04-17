@@ -1,2 +1,10 @@
 {% extends 'main/base.html' %}
 
+{% block title %}About{% endblock %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/landingpage.css' %}">
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}

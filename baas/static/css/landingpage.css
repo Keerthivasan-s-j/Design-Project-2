@@ -293,6 +293,16 @@ footer {
     color: white;
 }
 
+.social-links{
+    display: flex;
+    gap: 20px;
+}
+
+.social-links i {
+    font-size: 25px;
+    color: #a7f3d0;
+}
+
 .footer-bottom {
     text-align: center;
     padding: 20px;
