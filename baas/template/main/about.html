@@ -8,3 +8,32 @@
 <link rel="stylesheet" href="{% static 'css/landingpage.css' %}">
 <link rel="stylesheet" href="{% static 'css/about.css' %}">
 {% endblock %}
+
+{% block hero %}
+<section class="about-hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Our Story</h1>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque, ab?</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block main %}
+<section class="our-story section-padding">
+    <div class="container">
+        <div class="story-content">
+            <div class="story-text">
+                <h2>How It All Began</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis, odio dolorum. Nisi repellat inventore unde recusandae obcaecati illo ea totam?Lorem ipsum dolor sit amet consectetur adipisicing elit. In, accusamus.</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis, odio dolorum. Nisi repellat inventore unde recusandae obcaecati illo ea totam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita tempore, quae sint fugiat ut placeat perspiciatis est deleniti minus non.</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis, odio dolorum. Nisi repellat inventore unde recusandae obcaecati illo ea totam?</p>
+            </div>
+            <div class="story-image">
+                <img src="{% static 'images/about.jpg' %}" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
