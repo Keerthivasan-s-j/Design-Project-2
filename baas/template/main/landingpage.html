@@ -8,9 +8,14 @@
         <div class="hero-content">
             <h1>Hello Keerthivasan S J</h1>
             <p>The one and only fast and efficent battery swapping platform</p>
-            <div class="hero-buttons">
-                <a href="#" class="btn btn-primary">Shop Now</a>
-                <a href="#" class="btn btn-outline">Learn More</a>
+            <div class="hero-search">
+                <!-- <a href="#" class="btn btn-primary">Shop Now</a>
+                <a href="#" class="btn btn-outline">Learn More</a> -->
+                <form action="" class="search-product-cnt">
+                    {% csrf_token %}
+                    <input type="text" name="search" id="search" class="search" placeholder="Try to search something!">
+                    <button type="submit" class="search-submit-btn"><i class='bx bx-search'></i></button>
+                </form>
             </div>
         </div>
     </div>

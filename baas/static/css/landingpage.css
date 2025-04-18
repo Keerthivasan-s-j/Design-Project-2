@@ -181,7 +181,31 @@ nav {
     gap: 16px;
     justify-content: center;
     flex-wrap: wrap;
-  }
+}
+
+.search-product-cnt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.search {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px 0 0 8px;
+    border: none;
+}
+
+.search-submit-btn {
+    border: none;
+    font-size: 25px;
+    padding: 4px 14px;
+    border-radius: 0 8px 8px 0;
+    background-color: #065841;
+    color: white;
+}
 
 /* Products */
 .products,
@@ -339,7 +363,8 @@ footer {
       flex-direction: column;
     }
     
-    .btn {
+    .btn,
+    .search {
       width: 100%;
     }
 }
