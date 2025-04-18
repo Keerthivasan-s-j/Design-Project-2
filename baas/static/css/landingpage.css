@@ -321,3 +321,25 @@ footer {
     color: #a7f3d0;
     border-top: 1px solid #047857;
 }
+
+@media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+    
+    .hero h1 {
+      font-size: 36px;
+    }
+    
+    .hero p {
+      font-size: 18px;
+    }
+    
+    .hero-buttons {
+      flex-direction: column;
+    }
+    
+    .btn {
+      width: 100%;
+    }
+}

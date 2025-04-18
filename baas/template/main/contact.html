@@ -1,0 +1,41 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Contact{% endblock %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/landingpage.css' %}">
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock %}
+
+<!-- Products -->
+{% block main %}
+<section class="contact section-padding">
+    <div class="container">
+        <div class="contact-card">
+            <form action="" class="contact-form">
+                <h1>Contact Form</h1>
+                <div class="form-content">
+                    <input type="text" name="name" id="name" class="name" placeholder="Name">
+                    <div class="two-col">
+                        <input type="email" name="email" id="email" class="email" placeholder="abc@example.com">
+                        <input type="text" name="subject" id="subject" class="subject" placeholder="subject">
+                    </div>
+                    <textarea name="message" id="message" placeholder="Write here..."></textarea>
+                    <button type="submit" class="btn btn-primary submit">Submit</button>
+                </div>
+                <div class="contact-links">
+                    <a href="#"><i class='bx bxl-gmail'></i></a>
+                    <a href="#"><i class='bx bxl-linkedin-square'></i></a>
+                    <a href="#"><i class='bx bxl-github'></i></a>
+                    <a href="#"><i class='bx bxl-instagram'></i></a>
+                </div>
+            </form>
+            <div class="contact-image">
+                <img src="{% static 'images/contact.jpg' %}" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

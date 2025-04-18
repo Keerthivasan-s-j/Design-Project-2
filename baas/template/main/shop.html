@@ -1,20 +1,12 @@
 {% extends 'main/base.html' %}
 
+{% block title %}Shop{% endblock %}
+
 {% load static %}
-<!-- Hero Section -->
-{% block hero %}
-<section class="hero">
-    <div class="container">
-        <div class="hero-content">
-            <h1>Hello Keerthivasan S J</h1>
-            <p>The one and only fast and efficent battery swapping platform</p>
-            <div class="hero-buttons">
-                <a href="#" class="btn btn-primary">Shop Now</a>
-                <a href="#" class="btn btn-outline">Learn More</a>
-            </div>
-        </div>
-    </div>
-</section>
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/landingpage.css' %}">
+<link rel="stylesheet" href="{% static 'css/shop.css' %}">
 {% endblock %}
 
 <!-- Products -->
