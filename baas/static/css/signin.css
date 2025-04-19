@@ -1,0 +1,112 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signin-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    height: fit-content;
+    max-width: 1000px;
+    overflow: hidden;
+    color: white;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.logo-text {
+    color: white;
+}
+
+.blob-image {
+    background: url("/static/images/blob.png");
+    background-size: cover;
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.blob-image h1 {
+    font-size: 70px;
+}
+
+.logo {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
+.signin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+    color: black;
+}
+
+.signin-form p {
+    font-size: 12px;
+    color: #ccc;
+    width: 300px;
+}
+
+.two-col {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    padding: 0 5px;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+}
+
+.username,
+.password {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 2px solid #065841;
+}
+
+input[type = "checkbox"] {
+    transform: scale(1.5);
+    margin-right: 8px;
+}
+
+.submit {
+    color: white;
+    background-color: #004834;
+    border-radius: 8px;
+    border: 2px solid #004834;
+    transition: all 0.3s ease;
+}
+
+.submit:hover {
+    background-color: #047857;
+    border: 2px solid #047857;
+}
+
+@media (max-width: 768px) {
+    .blob-image h1 {
+        font-size: 40px;
+    }
+}
+@media (max-width: 650px) {
+    .blob-image {
+        display: none;
+    }
+}

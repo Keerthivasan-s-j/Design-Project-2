@@ -33,6 +33,12 @@ header {
     padding: 0 20px;
 }
 
+.two-col {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
 .btn {
     display: inline-block;
     padding: 12px 24px;
@@ -195,16 +201,26 @@ nav {
     padding: 10px;
     font-size: 16px;
     border-radius: 8px 0 0 8px;
-    border: none;
+    border: 2px solid #065841;
 }
 
-.search-submit-btn {
-    border: none;
+.search:focus {
+    outline: none;
+}
+
+.search-btn {
+    border: 2px solid #065841;
     font-size: 25px;
     padding: 4px 14px;
     border-radius: 0 8px 8px 0;
     background-color: #065841;
     color: white;
+    transition: all 0.3s ease;
+}
+
+.search-btn:hover,
+.search-btn:active {
+    background-color: #047857;
 }
 
 /* Products */
@@ -243,10 +259,12 @@ nav {
     height: 200px;
     border-bottom: 1px solid #e5e7eb;
     position: relative;
+    overflow: hidden;
 }
 
 .product-image img {
     max-height: 100%;
+    width: auto;
     margin: auto;
 }
 

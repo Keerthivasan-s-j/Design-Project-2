@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/landingpage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/signin.css' %}">
+</head>
+<body>
+    <section class="section-padding">
+        <div class="container">
+            <div class="signin-content">
+                <div class="blob-image">
+                    <div class="logo">
+                        <div class="logo-icon"></div>
+                        <div class="logo-text">EcoSwap</div>
+                    </div>
+                    <h1>Welcome <br> Back!</h1>
+                </div>
+                <form action="" class="signin-form">
+                    <h1>Login</h1>
+                    <p>Welcome back please login to your account</p>
+                    <label for="username">Username</label>
+                    <input type="text" id="username" class="username" placeholder="Username">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="password" placeholder="Password">
+                    <div class="two-col">
+                        <div class="remember">
+                            <input type="checkbox" class="remember_me">
+                            <label for="remember_me">Remember Me</label>
+                        </div>
+                        <a href="#">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="submit btn">Login</button>
+                    <p>Don't have an account sign up <a href="#">Sign Up</a></p>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

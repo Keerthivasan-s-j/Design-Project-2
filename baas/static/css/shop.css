@@ -1,0 +1,15 @@
+.accessibility {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.shop-search {
+    border: 2px solid #065841;
+}
+
+.shop-search-btn {
+    border: 2px solid #065841;
+}

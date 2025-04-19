@@ -14,6 +14,13 @@
 <section class="products">
     <div class="container">
         <h1 class="section-title">Featured Products</h1>
+        <div class="accessibility">
+            <form action="" class="search-product-cnt">
+                {% csrf_token %}
+                <input type="text" name="search" id="search" class="shop-search search" placeholder="Try to search something!">
+                <button type="submit" class="shop-search-btn search-btn"><i class='bx bx-search'></i></button>
+            </form>
+        </div>
         <div class="product-grid">
             <!-- Product 1 -->
             <div class="product-card">
@@ -23,7 +30,7 @@
                 <div class="product-info">
                     <h3 class="product-name">Battery 1</h3>
                     <div class="product-rating">
-                        <span class="rating-count">(4.5)</span>
+                        <span class="rating-count">⭐ (4.5)</span>
                     </div>
                 </div>
                 <div class="product-footer">
@@ -39,7 +46,7 @@
                 <div class="product-info">
                     <h3 class="product-name">Battery 2</h3>
                     <div class="product-rating">
-                        <span class="rating-count">(4.6)</span>
+                        <span class="rating-count">⭐ (4.6)</span>
                     </div>
                 </div>
                 <div class="product-footer">
@@ -55,7 +62,7 @@
                 <div class="product-info">
                     <h3 class="product-name">Battery 3</h3>
                     <div class="product-rating">
-                        <span class="rating-count">(4.2)</span>
+                        <span class="rating-count">⭐ (4.2)</span>
                     </div>
                 </div>
                 <div class="product-footer">
@@ -71,7 +78,7 @@
                 <div class="product-info">
                     <h3 class="product-name">Battery 4</h3>
                     <div class="product-rating">
-                        <span class="rating-count">(4.3)</span>
+                        <span class="rating-count">⭐ (4.3)</span>
                     </div>
                 </div>
                 <div class="product-footer">

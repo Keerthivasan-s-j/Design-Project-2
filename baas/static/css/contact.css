@@ -89,12 +89,18 @@ textarea:focus {
     border-radius: 20px;
 }
 
-.contact-image img{
+.contact-image img {
     display: block;
     width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 20px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+}
+
+@media (max-width: 728px) {
+    .contact-image {
+        display: none;
+    }
 }
