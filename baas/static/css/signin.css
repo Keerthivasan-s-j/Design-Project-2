@@ -27,7 +27,7 @@ body {
 }
 
 .blob-image {
-    background: url("/static/images/blob.png");
+    background: url("/static/images/blob2.png");
     background-size: cover;
     background-position: bottom left;
     background-repeat: no-repeat;
@@ -80,6 +80,11 @@ body {
     font-size: 16px;
     border-radius: 8px;
     border: 2px solid #065841;
+}
+
+.username:focus,
+.password:focus {
+    outline: none;
 }
 
 input[type = "checkbox"] {

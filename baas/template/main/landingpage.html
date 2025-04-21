@@ -29,69 +29,113 @@
         <h1 class="section-title">Featured Products</h1>
         <div class="product-grid">
             <!-- Product 1 -->
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="{% static 'images/battery1.jpg' %}" alt="">
-                </div>
-                <div class="product-info">
-                    <h3 class="product-name">Battery 1</h3>
-                    <div class="product-rating">
-                        <span class="rating-count">⭐ (4.5)</span>
+            <a href="{% url 'product' id=10 %}">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="{% static 'images/battery1.jpg' %}" alt="">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Battery 1</h3>
+                        <div class="product-rating">
+                            <span class="rating-count">⭐ (4.5)</span>
+                        </div>
+                    </div>
+                    <div class="product-footer">
+                        <span class="product-price">₹5000</span>
+                        <button class="add-to-cart">Add to Cart</button>
                     </div>
                 </div>
-                <div class="product-footer">
-                    <span class="product-price">₹5000</span>
-                    <button class="add-to-cart">Add to Cart</button>
-                </div>
-            </div>
+            </a>
             <!-- Product 2 -->
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="{% static 'images/battery2.jpg' %}" alt="">
-                </div>
-                <div class="product-info">
-                    <h3 class="product-name">Battery 2</h3>
-                    <div class="product-rating">
-                        <span class="rating-count">⭐ (4.6)</span>
+            <a href="{% url 'product' id=10 %}">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="{% static 'images/battery2.jpg' %}" alt="">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Battery 2</h3>
+                        <div class="product-rating">
+                            <span class="rating-count">⭐ (4.6)</span>
+                        </div>
+                    </div>
+                    <div class="product-footer">
+                        <span class="product-price">₹2000</span>
+                        <button class="add-to-cart">Add to Cart</button>
                     </div>
                 </div>
-                <div class="product-footer">
-                    <span class="product-price">₹2000</span>
-                    <button class="add-to-cart">Add to Cart</button>
-                </div>
-            </div>
+            </a>
             <!-- Product 3 -->
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="{% static 'images/battery3.png' %}" alt="">
-                </div>
-                <div class="product-info">
-                    <h3 class="product-name">Battery 3</h3>
-                    <div class="product-rating">
-                        <span class="rating-count">⭐ (4.2)</span>
+            <a href="{% url 'product' id=10 %}">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="{% static 'images/battery3.png' %}" alt="">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Battery 3</h3>
+                        <div class="product-rating">
+                            <span class="rating-count">⭐ (4.2)</span>
+                        </div>
+                    </div>
+                    <div class="product-footer">
+                        <span class="product-price">₹4000</span>
+                        <button class="add-to-cart">Add to Cart</button>
                     </div>
                 </div>
-                <div class="product-footer">
-                    <span class="product-price">₹4000</span>
-                    <button class="add-to-cart">Add to Cart</button>
-                </div>
-            </div>
+            </a>
             <!-- Product 4 -->
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="{% static 'images/battery4.png' %}" alt="">
-                </div>
-                <div class="product-info">
-                    <h3 class="product-name">Battery 4</h3>
-                    <div class="product-rating">
-                        <span class="rating-count">⭐ (4.3)</span>
+            <a href="{% url 'product' id=10 %}">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="{% static 'images/battery4.png' %}" alt="">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Battery 4</h3>
+                        <div class="product-rating">
+                            <span class="rating-count">⭐ (4.3)</span>
+                        </div>
+                    </div>
+                    <div class="product-footer">
+                        <span class="product-price">₹3000</span>
+                        <button class="add-to-cart">Add to Cart</button>
                     </div>
                 </div>
-                <div class="product-footer">
-                    <span class="product-price">₹3000</span>
-                    <button class="add-to-cart">Add to Cart</button>
+            </a>
+            <!-- Product 5 -->
+            <a href="{% url 'product' id=10 %}">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="{% static 'images/battery5.png' %}" alt="">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Battery 5</h3>
+                        <div class="product-rating">
+                            <span class="rating-count">⭐ (4.3)</span>
+                        </div>
+                    </div>
+                    <div class="product-footer">
+                        <span class="product-price">₹3000</span>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
                 </div>
-            </div>
+            </a>
+            <!-- Product 6 -->
+            <a href="{% url 'product' id=10 %}">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="{% static 'images/battery6.png' %}" alt="">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Battery 6</h3>
+                        <div class="product-rating">
+                            <span class="rating-count">⭐ (4.3)</span>
+                        </div>
+                    </div>
+                    <div class="product-footer">
+                        <span class="product-price">₹3000</span>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </a>
         </div>
     </div>
 </section>
