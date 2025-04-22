@@ -4,6 +4,10 @@ body {
     align-items: center;
 }
 
+a {
+    color: blue;
+}
+
 .signin-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

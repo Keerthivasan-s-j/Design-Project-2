@@ -2,8 +2,8 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     padding: 10px;
-    border-radius: 30px;
-    background: linear-gradient(130deg, rgba(149, 255, 181, 0.9), rgba(5, 133, 92, 0.9));
+    border-radius: 20px;
+    background: linear-gradient(130deg, rgba(183, 255, 204, 0.9), rgba(149, 255, 181, 0.9), rgba(8, 194, 135, 0.9));
 }
 
 .contact-form {
@@ -14,7 +14,7 @@
     font-size: 28px;
     color: #047857;
     text-align: center;
-    margin-bottom: 30px;
+    margin: 20px 0 30px 0;
 }
 
 .form-content {
@@ -30,7 +30,7 @@
     padding: 10px;
     border-radius: 5px;
     font-size: 1rem;
-    border: none;
+    border: 2px solid #004834;
 }
 
 .two-col {
@@ -45,7 +45,7 @@ textarea {
     border-radius: 8px;
     padding: 10px;
     font-size: 1rem;
-    border: none;
+    border: 2px solid #004834;
     resize: vertical;
 }
 
@@ -86,7 +86,7 @@ textarea:focus {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .contact-image img {

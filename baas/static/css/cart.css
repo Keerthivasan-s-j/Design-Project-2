@@ -1,0 +1,14 @@
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e5e6eb;
+    border-radius: 8px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+.no-items {
+    color: #ccc;
+}

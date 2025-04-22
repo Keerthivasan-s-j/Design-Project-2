@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Contact{% endblock %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/landingpage.css' %}">
+<link rel="stylesheet" href="{% static 'css/charging_hub.css' %}">
+{% endblock %}
+
+{% block main %}
+<section class="section-padding">
+    <div class="container map-cnt">
+        <h1 class="section-title">Find the Charging Station in your location</h1>
+        <div class="accessibility">
+            <form action="" class="search-product-cnt" method="POST">
+                {% csrf_token %}
+                <input type="text" name="search" id="search" class="charging-hub-search search" placeholder="Try to search something!" value="{{ place }}">
+                <button type="submit" class="charging-hub-search-btn search-btn"><i class='bx bx-search'></i></button>
+            </form>
+        </div>
+        <h2>Charging Stations in <span class="place">"{{ place|title }}"</span></h2>
+        <iframe width="100%" height="500" border-radius="30" frameborder="0" style="border:0" src="{{ embed_url }}" allowfullscreen></iframe>
+    </div>
+</section>
+{% endblock %}

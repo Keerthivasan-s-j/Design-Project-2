@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Contact{% endblock %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/landingpage.css' %}">
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+{% endblock %}
+
+{% block main %}
+<section class="section-padding">
+    <div class="container">
+        <div class="cart-content">
+            <h1 class="section-title">Cart Products</h1>
+            <div class="cart-items">
+                <p class="no-items">Your cart is feeling a little lonely.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

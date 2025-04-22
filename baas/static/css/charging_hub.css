@@ -1,0 +1,19 @@
+.charging-hub-search {
+    border: 2px solid #065841;
+}
+
+.charging-hub-search-btn {
+    border: 2px solid #065841;
+}
+
+iframe {
+    border-radius: 10px;
+}
+
+h2 {
+    margin: 30px 0;
+}
+
+.place {
+    color: #059669;
+}
