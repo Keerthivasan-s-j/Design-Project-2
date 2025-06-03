@@ -1,0 +1,16 @@
+.success-message-cnt {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid;
+    border-color: #10b981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+.success-message {
+    color: #10b981;
+}

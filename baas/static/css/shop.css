@@ -13,3 +13,14 @@
 .shop-search-btn {
     border: 2px solid #065841;
 }
+
+select {
+    padding: 10px;
+    border: 2px solid #065841;
+    border-radius: 8px;
+}
+
+option {
+    color: #065841;
+    font-weight: 400;
+}

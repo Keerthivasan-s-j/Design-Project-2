@@ -18,18 +18,33 @@
             <nav>
                 <div class="logo">
                     <div class="logo-icon"></div>
-                    <div class="logo-text">EcoSwap</div>
+                    <div class="logo-text"><a href="{% url 'landingpage' %}">EcoSwap</a></div>
                 </div>
                 <div class="nav-links">
-                    <a href="{% url 'landingpage' %}">Home</a>
-                    <a href="{% url 'shop' %}">Shop</a>
-                    <a href="{% url 'about' %}">About</a>
-                    <a href="{% url 'contact' %}">Contact</a>
-                    <a href="{% url 'charging_hub' %}">Nearby Charge Hubs</a>
+                    <a class="{% if request.resolver_match.url_name == 'landingpage' %}active{% endif %}" href="{% url 'landingpage' %}">Home</a>
+                    <a class="{% if request.resolver_match.url_name == 'shop' %}active{% endif %}" href="{% url 'shop' %}">Shop</a>
+                    <a class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}" href="{% url 'about' %}">About</a>
+                    <a class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}" href="{% url 'contact' %}">Contact</a>
+                    <a class="{% if request.resolver_match.url_name == 'charging_hub' %}active{% endif %}" href="{% url 'charging_hub' %}">Charging Hubs</a>
                 </div>
                 <div class="nav-actions">
                     <a href="{% url 'cart' %}" class="cart-icon"><i class='bx bx-cart-alt' ></i></a>
+                    {% if user.is_authenticated %}
+                    <div class="drop-down-cnt">
+                        <div class="user-profile" onclick="toggle_drop_down()">
+                            <div class="profile"></div>
+                            <p>{{ user.username }}</p>
+                        </div>
+                        <div class="drop-down" id="drop_down">
+                            <ul class="drop-down-list">
+                                <li class="list-item"><a href="{% url 'admin:index' %}"><i class='bx bxs-cog'></i> Admin</a></li>
+                                <li class="list-item"><a href="{% url 'logout' %}"><i class='bx bx-exit'></i> Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    {% else %}
                     <a href="{% url 'signin' %}" class="sign-in">Sign In</a>
+                    {% endif %}
                 </div>
             </nav>
         </div>
@@ -72,6 +87,7 @@
                         <li><a href="#">About Us</a></li>
                         <li><a href="#">Origin</a></li>
                         <li><a href="#">Carrier</a></li>
+                        <!-- <li><a href="{% url 'logout' %}">Logout</a></li> -->
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -91,5 +107,6 @@
         </div>
     </footer>
     {% endblock %}
+    <script src="{% static 'js/landingpage.js' %}"></script>
 </body>
 </html>

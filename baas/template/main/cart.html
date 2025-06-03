@@ -1,6 +1,6 @@
 {% extends 'main/base.html' %}
 
-{% block title %}Contact{% endblock %}
+{% block title %}Cart{% endblock %}
 
 {% load static %}
 
@@ -15,7 +15,37 @@
         <div class="cart-content">
             <h1 class="section-title">Cart Products</h1>
             <div class="cart-items">
-                <p class="no-items">Your cart is feeling a little lonely.</p>
+                <div class="mobile-view product-grid">
+                    {% for item in cart_items %}
+                    <div class="product-card">
+                        <a href="{% url 'product' item.product.id %}">
+                            <div class="product-image">
+                                <img src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">{{ item.product.name }}</h3>
+                                <div class="product-rating">
+                                    <div class="two-col">
+                                        <span class="battery-capacity"><i class='bx bxs-battery-low' ></i> {{ item.product.battery_capacity }} kWh</span>
+                                        <p class="quantity">Quantity {{ item.quantity }}</p>
+                                    </div>
+                                </div>
+                                <p class="product-details">{{ item.product.details }}</p>
+                                <span class="product-price">₹{{ item.total_price }} <span>(Per Day)</span></span>
+                            </div>
+                        </a>
+                        <div class="product-footer">
+                            <a href="{% url 'remove_from_cart' item.product.id %}">
+                                <button class="remove">Remove</button>
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <div class="two-col">
+                        <h1>Total ₹{{ grand_total }}</h1>
+                    <a href="{% url 'shipping' %}"><button class="btn place-order">Place Order</button></a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

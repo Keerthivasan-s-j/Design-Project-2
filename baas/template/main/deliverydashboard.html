@@ -1,0 +1,181 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/landingpage.css' %}">
+<link rel="stylesheet" href="{% static 'css/deliverydashboard.css' %}">
+{% endblock %}
+
+{% block header %}
+<header class="delivery-header">
+    <div class="header-container">
+        <div class="logo">
+            <div class="logo-icon"></div>
+            <div class="logo-text"><a href="{% url 'landingpage' %}">EcoSwap</a></div>
+        </div>
+        <h1>Delivery Dashboard</h1>
+    
+        <div class="notification-toggle">
+            <svg class="notification-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+            </svg>
+            <span class="toggle-label">Notifications</span>
+            <label class="toggle-btn">
+                <input type="checkbox" checked>
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+        <div class="nav-actions">
+            {% if user.is_authenticated %}
+            <div class="drop-down-cnt">
+                <div class="user-profile" onclick="toggle_drop_down()">
+                    <div class="profile"></div>
+                    <p>{{ user.username }}</p>
+                </div>
+                <div class="drop-down" id="drop_down">
+                    <ul class="drop-down-list">
+                        <li class="list-item"><a href="{% url 'admin:index' %}"><i class='bx bxs-cog'></i> Admin</a></li>
+                        <li class="list-item"><a href="{% url 'logout' %}"><i class='bx bx-exit'></i> Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+            {% else %}
+            <a href="{% url 'signin' %}" class="sign-in">Sign In</a>
+            {% endif %}
+        </div>
+    </div>
+</header>
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <!-- Dashboard Content -->
+    <div class="dashboard-grid">
+        <!-- Current Orders -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Current Orders (3)</h2>
+            </div>
+            <div class="card-content">
+                {% for order in orders %}
+                <div class="order-item">
+                    <div class="order-header">
+                        <div>
+                            <h3>{{ order.user.username }}</h3>
+                            <p class="order-address">{{ order.address }}</p>
+                            <p class="order-items">{{ order.quantity }} x {{ order.product.name }}</p>
+                        </div>
+                        <span class="order-status {{order.status}}">
+                            {{ order.status|title }}
+                        </span>
+                    </div>
+                    <div class="order-actions">
+                        <a href="" class="btn btn-outline">View Details</a>
+                        <form method="post" action="">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary green">Start Delivery</button>
+                        </form>
+                    </div>
+                </div>
+                {% empty %}
+                    <p>No orders currently assigned.</p>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Delivery Status -->
+        <!-- <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Delivery Status</h2>
+            </div>
+            <div class="card-content">
+                <div class="status-item">
+                    <div class="status-info">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 6 9 17l-5-5" />
+                        </svg>
+                        <span>Completed</span>
+                    </div>
+                    <span class="status-count">12</span>
+                </div>
+
+                <div class="status-item">
+                    <div class="status-info">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                        <span>In Progress</span>
+                    </div>
+                    <span class="status-count">3</span>
+                </div>
+
+                <div class="status-item">
+                    <div class="status-info">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 6 6 18" />
+                            <path d="m6 6 12 12" />
+                        </svg>
+                        <span>Pending</span>
+                    </div>
+                    <span class="status-count">2</span>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- Earnings -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Earnings</h2>
+            </div>
+            <div class="card-content">
+                <div class="earning-item">
+                    <p class="earning-label">Today</p>
+                    <p class="earning-amount">₹1500</p>
+                </div>
+
+                <div class="earning-item">
+                    <p class="earning-label">This Week</p>
+                    <p class="earning-amount">₹5400</p>
+                </div>
+
+                <div class="earning-item">
+                    <p class="earning-label">This Month</p>
+                    <p class="earning-amount">₹20800</p>
+                </div>
+
+                <button class="btn btn-primary green btn-full">View Full Report</button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        
+    </div>
+    <section class="notifications-cnt">
+        <h1 class="section-title">Notifications</h1>
+        <div class="notifications">
+            {% for notification in notifications %}
+                <div class="notification-card">
+                    <div class="two-col">
+                        <div class="notifi-content">
+                            <p class="sender"><strong>From:</strong> {{ notification.sender.username }}</p>
+                            <p class="message"><strong>Message:</strong> {{ notification.message }}</p>
+                            <p class="timestamp"><strong>Sent:</strong> {{ notification.created_at|date:"M d, Y H:i" }}</p>
+                        </div>
+                        <div class="pick-order-toggle">
+                            <span class="toggle-label">Pick Order</span>
+                            <label class="toggle-btn">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p>No notifications yet.</p>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+{% endblock %}

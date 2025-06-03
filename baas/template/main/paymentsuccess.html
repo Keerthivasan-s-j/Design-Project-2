@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Contact{% endblock %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/landingpage.css' %}">
+<link rel="stylesheet" href="{% static 'css/paymentsuccess.css' %}">
+{% endblock %}
+
+<!-- Products -->
+{% block main %}
+<section class="product-cnt section-padding">
+    <div class="container">
+        <div class="payment-content">
+            <h1 class="section-title">Payment Succesful</h1>
+            <div class="success-message-cnt">
+                <p class="success-message">Order placed successfully.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

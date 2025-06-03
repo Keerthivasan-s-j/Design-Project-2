@@ -16,17 +16,21 @@
         <div class="product-content">
             <div class="product-image-cnt">
                 <div class="product-image-placeholder">
-                    <img src="{% static 'images/battery3.png' %}" alt="">
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
                 </div>
             </div>
             <div class="product-details">
-                <h1 class="product product-name">Battery 3</h1>
-                <h3 class="product product-price">₹4000 <span>(Per Day)</span></h3>
-                <p class="details">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur tempora labore, accusantium odio eos delectus earum perferendis aliquam ipsum animi, doloribus, voluptatem soluta cupiditate illo.</p>
+                <h1 class="product product-name">{{ product.name }}</h1>
+                <h3 class="product product-price">₹{{ product.price }} <span class="price-per-day">(Per Day)</span></h3>
+                <p class="details">{{ product.details }}</p>
+                {% if product.delevery_option == "free" %}
                 <p class="delevery-option"><span>📦</span> Free Shipping</p>
+                {% else %}
+                <p class="delevery-option"><span>💵</span> Shipping cost <span id="shipping-cost">₹{{ product.shipping_cost }}</span></p>
+                {% endif %}
                 <div class="two-col">
-                    <button class="btn add-to-cart">Add to Cart</button>
-                    <button class="btn place-order">Place Order</button>
+                    <a href="{% url 'add_to_cart' product.id %}"><button class="btn add-to-cart">Add to Cart</button></a>
+                    <a href="{% url 'shipping' %}"><button class="btn place-order">Place Order</button></a>
                 </div>
             </div>
         </div>

@@ -5,11 +5,16 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+:root {
+    --green-50: #f0fdf4;
+}
+
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     color: #333;
+    background-color: var(--green-50);
 }
 
 a {
@@ -34,7 +39,8 @@ header {
     padding: 0 20px;
 }
 
-.two-col {
+.two-col,
+.three-col {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 20px;
@@ -132,7 +138,8 @@ nav {
     color: #059669;
 }
 
-.nav-links>a:hover::before {
+.nav-links>a:hover::before,
+.nav-links>a.active::before {
     width: 100%;
 }
 
@@ -156,10 +163,61 @@ nav {
     cursor: pointer;
 }
 
+.user-profile{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px 5px 5px;
+    border-radius: 30px;
+    border: 2px solid #047857;
+}
+
+.profile {
+    width: 30px;
+    height: 30px;
+    background-color: #059669;
+    border-radius: 25px;
+}
+
+.drop-down-cnt {
+    position: relative;
+}
+
+.drop-down {
+    display: none;
+    width: 200px;
+    position: absolute;
+    top:  50px;
+    background-color: white;
+    border: 2px solid #047857;
+    border-radius: 8px;
+}
+
+.drop-down-list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+.drop-down-list li {
+    padding: 15px 30px;
+}
+
+.drop-down-list li a {
+    display: flex;
+    align-items: center;
+}
+
+.drop-down-list li i {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
 /* Hero */
 .hero {
     padding: 80px 0;
-    background: linear-gradient(130deg, rgba(13, 189, 133, 0.9), rgba(4, 106, 74, 0.9)),
+    background: linear-gradient(130deg, rgba(79, 222, 136, 0.148), rgba(13, 189, 133, 0.9), rgba(4, 106, 74, 0.9)),
                 url("/static/images/bike.png");
     background-position: left;
     background-size: contain;
@@ -244,6 +302,7 @@ nav {
 }
 
 .product-card {
+    background-color: white;
     border: 1px solid #e5e7eb;
     border-radius: 8px;
     transition: all 0.3s ease;
@@ -270,12 +329,22 @@ nav {
 }
 
 .product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     padding: 16px;
 }
 
+.product-details {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
 .product-name {
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 20px;
+    font-weight: 700;
     margin-bottom: 10px;
 }
 
@@ -287,18 +356,61 @@ nav {
     border-top: 1px solid #e5e7eb;
 }
 
+.product-footer a {
+    width: 100%;
+}
+
+.product-details {
+    color: gray;
+}
+
 .product-price {
     font-size: 20px;
     font-weight: 700;
     color: #065f46;
 }
 
-.add-to-cart {
+.product-price span {
+    color: gray;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.no-items-found {
+    border: 1px solid #e5e7eb;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    color: #ccc;
+}
+
+.battery-capacity {
+    display: flex;
+    align-items: center;
+    color: #065841;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.battery-capacity i {
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+.add-to-cart,
+.remove {
     background-color: #065f46;
     color: white;
     font-weight: 600;
     border-radius: 8px;
     padding: 10px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.remove {
+    background-color: red;
+    border: none;
 }
 
 /* Footer */

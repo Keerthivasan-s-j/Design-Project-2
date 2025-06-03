@@ -1,0 +1,318 @@
+:root {
+    --green-50: #f0fdf4;
+    --green-100: #dcfce7;
+    --green-200: #bbf7d0;
+    --green-300: #86efac;
+    --green-400: #4ade80;
+    --green-500: #22c55e;
+    --green-600: #16a34a;
+    --green-700: #15803d;
+    --green-800: #166534;
+    --green-900: #14532d;
+    --yellow-100: #fef9c3;
+    --yellow-800: #92400e;
+    --red-100: #fee2e2;
+    --red-500: #ef4444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--green-50);
+    color: var(--green-900);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.container {
+    margin-bottom: 30px;
+}
+
+/* Header Styles */
+.delivery-header {
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.delivery-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--green-800);
+}
+
+.notification-toggle,
+.pick-order-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notification-icon {
+    color: var(--green-600);
+}
+
+.toggle-btn {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+}
+
+.toggle-btn input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+    background-color: var(--green-600);
+}
+
+input:checked + .toggle-slider:before {
+    transform: translateX(30px);
+}
+
+.toggle-label {
+    font-weight: 500;
+    color: var(--green-700);
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .dashboard-grid {
+    grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Card Styles */
+.card {
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid var(--green-200);
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.card-header {
+    padding: 16px;
+    border-bottom: 1px solid var(--green-100);
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--green-800);
+}
+
+.card-content {
+    padding: 16px;
+}
+
+/* Current Orders */
+.order-item {
+    padding: 12px;
+    background-color: var(--green-50);
+    border: 1px solid var(--green-100);
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+
+.order-address {
+    font-size: 14px;
+    color: var(--green-600);
+    margin: 4px 0;
+}
+
+.order-items {
+    font-size: 12px;
+    color: var(--green-500);
+}
+
+.order-status {
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 12px;
+}
+
+.in_progress {
+    background-color: var(--green-100);
+    color: var(--green-800);
+}
+.pending {
+    background-color: var(--red-100);
+    color: var(--red-500);
+}
+
+.status-ready {
+    background-color: var(--yellow-100);
+    color: var(--yellow-800);
+}
+
+.order-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.btn {
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--green-300);
+    color: var(--green-700);
+}
+
+.btn-primary {
+    background-color: var(--green-600);
+    color: white;
+}
+
+.btn-primary:hover{
+    background-color: var(--green-700);
+    border: none;
+}
+
+/* Delivery Status */
+.status-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background-color: var(--green-50);
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+.status-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-count {
+    font-weight: 700;
+    color: var(--green-800);
+}
+
+/* Earnings */
+.earning-item {
+    margin-bottom: 20px;
+}
+
+.earning-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--green-600);
+    margin-bottom: 4px;
+}
+
+.earning-amount {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--green-800);
+}
+
+.btn-full {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.notifications-cnt {
+    max-width: 100%;
+    margin: auto;
+    padding: 20px;
+}
+
+.notifications {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.notification-card {
+    background-color: #f9f9f9;
+    border-left: 6px solid #4CAF50;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+}
+
+.notification-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.notification-card p {
+    margin: 5px 0;
+    color: #333;
+}
+
+.sender {
+    font-weight: bold;
+}
+
+.timestamp {
+    font-size: 0.9em;
+    color: #777;
+}
+
+.notification-card .two-col {
+    display: flex;
+    justify-content: space-between;
+}

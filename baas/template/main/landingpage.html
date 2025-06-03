@@ -6,14 +6,18 @@
 <section class="hero">
     <div class="container">
         <div class="hero-content">
-            <h1>Hello Keerthivasan S J</h1>
+            {% if user.is_authenticated %}
+            <h1>Hello {{ user.first_name }} {{ user.last_name }}</h1>
+            {% else %}
+            <h1>Hello Everyone</h1>
+            {% endif %}
             <p>The one and only fast and efficint battery swapping platform</p>
             <div class="hero-search">
                 <!-- <a href="#" class="btn btn-primary">Shop Now</a>
                 <a href="#" class="btn btn-outline">Learn More</a> -->
-                <form action="" class="search-product-cnt">
+                <form action="{% url 'landingpage' %}" method="post" class="search-product-cnt">
                     {% csrf_token %}
-                    <input type="text" name="search" id="search" class="search" placeholder="Try to search something!">
+                    <input type="text" name="search" id="search" class="search" placeholder="Try to search something!" value="{{ search }}">
                     <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
                 </form>
             </div>
@@ -27,115 +31,33 @@
 <section class="products">
     <div class="container">
         <h1 class="section-title">Featured Products</h1>
+        {% if not products|length %}
+        <p class="no-items-found">No items found</p>
+        {% endif %}
         <div class="product-grid">
+            {% for product in products %}
             <!-- Product 1 -->
-            <a href="{% url 'product' id=10 %}">
-                <div class="product-card">
+            <div class="product-card">
+                <a href="{% url 'product' product.id %}">
                     <div class="product-image">
-                        <img src="{% static 'images/battery1.jpg' %}" alt="">
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}">
                     </div>
                     <div class="product-info">
-                        <h3 class="product-name">Battery 1</h3>
+                        <h3 class="product-name">{{ product.name }}</h3>
                         <div class="product-rating">
-                            <span class="rating-count">⭐ (4.5)</span>
+                            <span class="battery-capacity"><i class='bx bxs-battery-low' ></i> {{ product.battery_capacity }} kWh</span>
                         </div>
+                        <p class="product-details">{{ product.details }}</p>
+                        <span class="product-price">₹{{ product.price }} <span>(Per Day)</span></span>
                     </div>
-                    <div class="product-footer">
-                        <span class="product-price">₹5000</span>
+                </a>
+                <div class="product-footer">
+                    <a href="{% url 'add_to_cart' product.id %}">
                         <button class="add-to-cart">Add to Cart</button>
-                    </div>
+                    </a>
                 </div>
-            </a>
-            <!-- Product 2 -->
-            <a href="{% url 'product' id=10 %}">
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="{% static 'images/battery2.jpg' %}" alt="">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Battery 2</h3>
-                        <div class="product-rating">
-                            <span class="rating-count">⭐ (4.6)</span>
-                        </div>
-                    </div>
-                    <div class="product-footer">
-                        <span class="product-price">₹2000</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </a>
-            <!-- Product 3 -->
-            <a href="{% url 'product' id=10 %}">
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="{% static 'images/battery3.png' %}" alt="">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Battery 3</h3>
-                        <div class="product-rating">
-                            <span class="rating-count">⭐ (4.2)</span>
-                        </div>
-                    </div>
-                    <div class="product-footer">
-                        <span class="product-price">₹4000</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </a>
-            <!-- Product 4 -->
-            <a href="{% url 'product' id=10 %}">
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="{% static 'images/battery4.png' %}" alt="">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Battery 4</h3>
-                        <div class="product-rating">
-                            <span class="rating-count">⭐ (4.3)</span>
-                        </div>
-                    </div>
-                    <div class="product-footer">
-                        <span class="product-price">₹3000</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </a>
-            <!-- Product 5 -->
-            <a href="{% url 'product' id=10 %}">
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="{% static 'images/battery5.png' %}" alt="">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Battery 5</h3>
-                        <div class="product-rating">
-                            <span class="rating-count">⭐ (4.3)</span>
-                        </div>
-                    </div>
-                    <div class="product-footer">
-                        <span class="product-price">₹3000</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </a>
-            <!-- Product 6 -->
-            <a href="{% url 'product' id=10 %}">
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="{% static 'images/battery6.png' %}" alt="">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Battery 6</h3>
-                        <div class="product-rating">
-                            <span class="rating-count">⭐ (4.3)</span>
-                        </div>
-                    </div>
-                    <div class="product-footer">
-                        <span class="product-price">₹3000</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </a>
+            </div>
+            {% endfor %}
         </div>
     </div>
 </section>

@@ -19,13 +19,14 @@
                     </div>
                     <h1>Welcome <br> Back!</h1>
                 </div>
-                <form action="" class="signin-form">
+                <form action="{% url 'signin' %}" method="post" class="signin-form">
+                    {% csrf_token %}
                     <h1>Login</h1>
                     <p>Welcome back please login to your account</p>
                     <label for="username">Username</label>
-                    <input type="text" id="username" class="username" placeholder="Username">
+                    <input type="text" id="username" name="username" class="username" placeholder="Username" value="{{ username }}">
                     <label for="password">Password</label>
-                    <input type="password" id="password" class="password" placeholder="Password">
+                    <input type="password" id="password" name="password" class="password" placeholder="Password" value="{{ password }}">
                     <div class="two-col">
                         <div class="remember">
                             <input type="checkbox" class="remember_me">

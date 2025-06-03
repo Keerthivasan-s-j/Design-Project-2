@@ -1,0 +1,128 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Contact{% endblock %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/landingpage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/shipping.css' %}">
+{% endblock %}
+
+<!-- Products -->
+{% block main %}
+<section class="product-cnt section-padding">
+    <div class="container">
+        <div class="checkout-step active" id="shipping-step-content">
+            <div class="form-container">
+                <h1 class="form-title">Shipping Address</h1>
+
+                <form action="{% url 'shipping' %}" method="post" id="addressForm">
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address1">Address Line 1</label>
+                        <input type="text" id="address1" name="address1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address2">Address Line 2 (Optional)</label>
+                        <input type="text" id="address2" name="address2">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" name="city" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="state">State/Province</label>
+                            <select id="state" name="state" required>
+                                {% for code,state in indian_states %}
+                                    <option value="{{ code }}">{{ state }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="zipCode">ZIP/Postal Code</label>
+                            <input type="text" id="zipCode" name="zipCode" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Country</label>
+                            <select id="country" name="country" required>
+                                <option value="IND" selected>India</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="saveAddress" name="saveAddress">
+                        <label for="saveAddress">Save this address for future purchases</label>
+                    </div>
+
+                    <div class="two-col">
+                        <div class="form-group">
+                            <label for="map-link">Current Location</label>
+                            <input type="text" id="map-link" placeholder="Goole map link of your current location">
+                        </div>
+                        <button class="btn btn-primary location-btn" onclick="getCurrentLocation()">Get Current Location</button>
+                    </div>
+
+                    <iframe id="mapFrame" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d33682829.93540151!2d71.7354816050514!3d16.555246430928463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1745731560510!5m2!1sen!2sin" allowfullscreen=""></iframe>
+
+                    <h1 class="form-title">Payment Details</h1>
+
+                    <div class="form-group">
+                        <label for="cardholderName">Cardholder Name</label>
+                        <input type="text" id="cardholderName" name="cardholderName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cardNumber">Card Number</label>
+                        <input type="text" id="cardNumber" name="cardNumber" maxlength="16" required>
+                    </div>
+
+                    <div class="three-col">
+                        <div class="form-group">
+                            <label for="expMonth">Expiration Month (MM)</label>
+                            <input type="text" id="expMonth" name="expMonth" maxlength="2" placeholder="MM" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="expYear">Expiration Year (YY)</label>
+                            <input type="text" id="expYear" name="expYear" maxlength="2" placeholder="YY" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV</label>
+                            <input type="password" id="cvv" name="cvv" maxlength="4" required>
+                        </div>
+                    </div>
+                    
+                    <div class="two-col">
+                        <a href="{% url 'cart' %}"><button type="button" class="btn btn-outline">Back to Cart</button></a>
+                        <a href="{% url 'paymentsuccess' %}"><button type="submit" class="btn btn-primary" id="continue-to-payment">Pay Now</button></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="{% static 'js/shipping.js' %}"></script>
+{% endblock %}
