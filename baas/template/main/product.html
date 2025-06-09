@@ -30,7 +30,7 @@
                 {% endif %}
                 <div class="two-col">
                     <a href="{% url 'add_to_cart' product.id %}"><button class="btn add-to-cart">Add to Cart</button></a>
-                    <a href="{% url 'shipping' %}"><button class="btn place-order">Place Order</button></a>
+                    <a href="{% url 'item_shipping' product.id %}"><button class="btn place-order">Place Order</button></a>
                 </div>
             </div>
         </div>

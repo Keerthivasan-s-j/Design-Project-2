@@ -1,0 +1,52 @@
+body {
+    background-color: #f9f9f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    color: #333;
+}
+
+.my-orders {
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+.orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.order-card {
+    border: 1px solid #ddd;
+    border-left: 6px solid #2ecc71;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fafafa;
+}
+
+.order-card h2 {
+    margin-top: 0;
+    color: #34495e;
+}
+
+.order-card ul {
+    padding-left: 20px;
+    margin: 10px 0;
+}
+
+.order-card li {
+    margin-bottom: 5px;
+}
+
+.order-card p {
+    margin: 5px 0;
+}

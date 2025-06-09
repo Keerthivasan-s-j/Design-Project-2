@@ -83,26 +83,38 @@ class Notification(models.Model):
 
     def __str__(self):
         return f"Notification from {self.sender} to {self.receiver}"
-    
+
 class Order(models.Model):
     STATUS_CHOICES = [
-        ('pending', 'Pending'),
-        ('in_progress', 'In Progress'),
-        ('ready', 'Ready for Pickup'),
-        ('delivered', 'Delivered'),
-        ('cancelled', 'Cancelled'),
+        ('Pending', 'Pending'),
+        ('Out for Delivery', 'Out for Delivery'),
+        ('Delivered', 'Delivered'),
     ]
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='orders')
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField(default=1)
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
-    address = models.TextField()
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    address1 = models.TextField()
+    address2 = models.TextField(blank=True, null=True)
+    city = models.CharField(max_length=100)
+    state = models.CharField(max_length=100)
+    zip_code = models.CharField(max_length=10)
+    country = models.CharField(max_length=100, default='India')
+    phone = models.CharField(max_length=15)
     created_at = models.DateTimeField(auto_now_add=True)
-    delivery_agent = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='deliveries')
+    total_amount = models.DecimalField(max_digits=10, decimal_places=2)
 
-    def total_price(self):
-        return self.quantity * self.product.price
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='Pending')
+    assigned_to = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL, related_name='assigned_orders')
 
     def __str__(self):
         return f"Order #{self.id} by {self.user.username}"
+    
+class OrderItem(models.Model):
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='items')
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
+    quantity = models.PositiveIntegerField()
+    price = models.DecimalField(max_digits=10, decimal_places=2)  # Price at time of order
+
+    def __str__(self):
+        return f"{self.product.name} x {self.quantity}"

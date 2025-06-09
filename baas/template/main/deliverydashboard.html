@@ -35,7 +35,6 @@
                 </div>
                 <div class="drop-down" id="drop_down">
                     <ul class="drop-down-list">
-                        <li class="list-item"><a href="{% url 'admin:index' %}"><i class='bx bxs-cog'></i> Admin</a></li>
                         <li class="list-item"><a href="{% url 'logout' %}"><i class='bx bx-exit'></i> Logout</a></li>
                     </ul>
                 </div>
@@ -55,7 +54,7 @@
         <!-- Current Orders -->
         <div class="card">
             <div class="card-header">
-                <h2 class="card-title">Current Orders (3)</h2>
+                <h2 class="card-title">Current Orders ({{ orders|length }})</h2>
             </div>
             <div class="card-content">
                 {% for order in orders %}
@@ -63,8 +62,13 @@
                     <div class="order-header">
                         <div>
                             <h3>{{ order.user.username }}</h3>
-                            <p class="order-address">{{ order.address }}</p>
-                            <p class="order-items">{{ order.quantity }} x {{ order.product.name }}</p>
+                            <p class="order-address">{{ order.address1 }}</p>
+                            <p class="order-items">
+                                {% for item in order.items.all %}
+                                {{ item.quantity }} x {{ item.product.name }}{% if not forloop.last %}, {% endif %}
+                                {% endfor %}
+                            </p>
+                            <h3>{{ order.total_amount }}</h3>
                         </div>
                         <span class="order-status {{order.status}}">
                             {{ order.status|title }}
@@ -72,7 +76,7 @@
                     </div>
                     <div class="order-actions">
                         <a href="" class="btn btn-outline">View Details</a>
-                        <form method="post" action="">
+                        <form method="post" action="{% url 'start_delivery' order.id %}">
                             {% csrf_token %}
                             <button type="submit" class="btn btn-primary green">Start Delivery</button>
                         </form>

@@ -1,6 +1,6 @@
 {% extends 'main/base.html' %}
 
-{% block title %}Contact{% endblock %}
+{% block title %}Shipping{% endblock %}
 
 {% load static %}
 
@@ -16,8 +16,7 @@
         <div class="checkout-step active" id="shipping-step-content">
             <div class="form-container">
                 <h1 class="form-title">Shipping Address</h1>
-
-                <form action="{% url 'shipping' %}" method="post" id="addressForm">
+                <form action="{% if individually_ordered %}{% url 'item_shipping' product_id=product.id %}{% else %}{% url 'bulk_shipping' %}{% endif %}" method="post">
                     {% csrf_token %}
                     <div class="form-row">
                         <div class="form-group">

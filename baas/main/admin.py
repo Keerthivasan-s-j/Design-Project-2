@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import UserProfile, Product, Cart, CartItems, Notification, Order
+from .models import UserProfile, Product, Cart, CartItems, Notification, Order, OrderItem
 
 @admin.register(UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):
@@ -49,8 +49,18 @@ class NotificationAdmin(admin.ModelAdmin):
     list_filter = ['is_read', 'order_picked']
     search_fields = ['sender__username', 'receiver__username']
 
+# @admin.register(Order)
+# class OrderAdmin(admin.ModelAdmin):
+#     list_display = ['id', 'user', 'product', 'quantity', 'status', 'delivery_agent', 'created_at']
+#     list_filter = ['status']
+#     search_fields = ['user__username', 'product__name']
+
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ['id', 'user', 'product', 'quantity', 'status', 'delivery_agent', 'created_at']
-    list_filter = ['status']
-    search_fields = ['user__username', 'product__name']
+    list_display = ['user', 'created_at', 'total_amount']  # remove invalid fields
+    search_fields = ['user__username', 'city', 'state']
+    list_filter = ['created_at']
+
+@admin.register(OrderItem)
+class OrderItemAdmin(admin.ModelAdmin):
+    list_display = ['order', 'product', 'quantity', 'price']
